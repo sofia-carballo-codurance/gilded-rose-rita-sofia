@@ -10,15 +10,11 @@ class GildedRoseTest {
 
     @Test
     void should_update_quality() {
-        String name = "foo";
-        int sellIn = 0;
-        int quality = 0;
-
         CombinationApprovals.verifyAllCombinations(
             this::doUpdateQuality,
-            new String[] {name},
-            new Integer[] {sellIn},
-            new Integer[] {quality}
+            new String[] {"Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert"},
+            new Integer[] {0, 1, 6, 11},
+            new Integer[] {0, 30, 50, 60}
         );
     }
 
