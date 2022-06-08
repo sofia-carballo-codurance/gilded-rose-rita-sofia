@@ -13,23 +13,23 @@ class GildedRose {
                 && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (item.quality > 0) {
                     if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.quality = item.quality - 1;
+                        downgradeQuality(item);
                     }
                 }
             } else {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                   upgradeQuality(item);
 
                     if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                upgradeQuality(item);
                             }
                         }
 
                         if (item.sellIn < 6) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                upgradeQuality(item);
                             }
                         }
                     }
@@ -45,7 +45,7 @@ class GildedRose {
                     if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (item.quality > 0) {
                             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                item.quality = item.quality - 1;
+                                downgradeQuality(item);
                             }
                         }
                     } else {
@@ -53,10 +53,18 @@ class GildedRose {
                     }
                 } else {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        upgradeQuality(item);
                     }
                 }
             }
         }
+    }
+
+    private void upgradeQuality(Item item) {
+        item.quality += 1;
+    }
+
+    private void downgradeQuality(Item item) {
+        item.quality -= 1;
     }
 }
