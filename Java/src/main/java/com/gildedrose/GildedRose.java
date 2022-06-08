@@ -9,14 +9,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!item.name.equals("Aged Brie")
-                && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        downgradeQuality(item);
-                    }
-                }
-            } else {
+            if (!(!item.name.equals("Aged Brie")
+                && !item.name.equals("Backstage passes to a TAFKAL80ETC concert"))) {
                 if (item.quality < 50) {
                    upgradeQuality(item);
 
@@ -56,9 +50,5 @@ class GildedRose {
 
     private void upgradeQuality(Item item) {
         item.quality += 1;
-    }
-
-    private void downgradeQuality(Item item) {
-        item.quality -= 1;
     }
 }
