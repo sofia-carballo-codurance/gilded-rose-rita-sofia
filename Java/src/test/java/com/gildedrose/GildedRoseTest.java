@@ -12,7 +12,7 @@ class GildedRoseTest {
     void should_update_quality() {
         CombinationApprovals.verifyAllCombinations(
             this::doUpdateQuality,
-            new String[] {"foo", "Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert"},
+            new String[] {"Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert"},
             new Integer[] {-1, 0, 2, 6, 11},
             new Integer[] {0, 1, 49, 50}
         );
