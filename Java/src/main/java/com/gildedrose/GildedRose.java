@@ -49,11 +49,10 @@ class GildedRose {
                     }
                     break;
 
-                default:
+                case "Sulfuras, Hand of Ragnaros":
+                    break;
 
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.sellIn = item.sellIn - 1;
-                    }
+                default:
             }
         }
     }
