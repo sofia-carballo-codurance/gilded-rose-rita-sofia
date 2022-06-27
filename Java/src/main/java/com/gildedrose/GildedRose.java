@@ -8,22 +8,8 @@ class GildedRose {
   }
 
   void updateQuality() {
-    IUpdateQuality updater;
     for (Item item : items) {
-      switch (item.name) {
-        case "Backstage passes to a TAFKAL80ETC concert":
-          updater = new UpdaterForBackstagePasses();
-          break;
-
-        case "Sulfuras, Hand of Ragnaros":
-          updater = new UpdaterForSulfuras();
-          break;
-
-        default:
-            updater = new UpdaterForAgedBrie();
-      }
-
-      new ItemStrategy(item).updateQuality(updater);
+      new ItemStrategy(item).updateQuality();
     }
   }
 }
