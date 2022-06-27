@@ -8,49 +8,22 @@ class GildedRose {
   }
 
   void updateQuality() {
+    IUpdateQuality updater;
     for (Item item : items) {
       switch (item.name) {
-        case "Aged Brie":
-          if (item.quality < 50) {
-            upgradeQuality(item);
-          }
-
-          item.sellIn -= 1;
-
-          if (item.quality < 50 && item.sellIn < 0) {
-            upgradeQuality(item);
-          }
-          break;
-
         case "Backstage passes to a TAFKAL80ETC concert":
-          if (item.quality < 50) {
-            upgradeQuality(item);
-
-            if (item.sellIn < 11 && item.quality < 50) {
-              upgradeQuality(item);
-            }
-
-            if (item.sellIn < 6 && item.quality < 50) {
-              upgradeQuality(item);
-            }
-          }
-
-          item.sellIn = item.sellIn - 1;
-
-          if (item.sellIn < 0) {
-            item.quality = 0;
-          }
+          updater = new UpdaterForBackstagePasses();
           break;
 
         case "Sulfuras, Hand of Ragnaros":
+          updater = new UpdaterForSulfuras();
           break;
 
         default:
+            updater = new UpdaterForAgedBrie();
       }
-    }
-  }
 
-  private void upgradeQuality(Item item) {
-    item.quality += 1;
+      new ItemStrategy(item).updateQuality(updater);
+    }
   }
 }
