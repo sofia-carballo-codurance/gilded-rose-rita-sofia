@@ -1,5 +1,5 @@
 package com.gildedrose;
 
 public interface IUpdateQuality {
-    void updateQuality();
+    void updateQuality(ItemStrategy item);
 }
